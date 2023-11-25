@@ -1,19 +1,18 @@
-import typing as tp
 import random
 
 
-def generate_random(size: int, numbers_range: tp.Tuple[int, int]) -> list[int]:
+def generate_random(size, numbers_range):
     return [random.randint(*numbers_range) for _ in range(size)]
 
 
-def generate_reverse_sorted(size: int, numbers_range: tp.Tuple[int, int]) -> list[int]:
+def generate_reverse_sorted(size, numbers_range):
     generated = generate_random(size, numbers_range)
     generated.sort()
     generated.reverse()
     return generated
 
 
-def generate_almost_sorted(size: int, numbers_range: tp.Tuple[int, int]) -> list[int]:
+def generate_almost_sorted(size, numbers_range):
     generated = generate_reverse_sorted(size, numbers_range)
     generated.reverse()
 

@@ -14,7 +14,7 @@ def compile():
             raise RuntimeError("Compilation of sorting programm failed")
 
 
-def run_test(sort_type: str, input_file: str, threshold: int | None = None) -> int:
+def run_test(sort_type, input_file, threshold=None):
     with subprocess.Popen(
         ["./a2", sort_type, input_file] + ([str(threshold)] if threshold else []),
         stdout=subprocess.PIPE,

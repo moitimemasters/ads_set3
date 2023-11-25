@@ -1,24 +1,20 @@
 import math
 import random
-import typing as tp
 
 import matplotlib.pyplot as plt
 
-type Range = tp.Tuple[float, float]
-Point = Range
 
-
-def generate_random_point(x_range: Range, y_range: Range) -> Point:
+def generate_random_point(x_range, y_range):
     return random.uniform(*x_range), random.uniform(*y_range)
 
 
-def is_in_circle(point: Point, center: Point, radius: float) -> bool:
+def is_in_circle(point, center, radius):
     p_x, p_y = point
     c_x, c_y = center
     return (p_x - c_x) * (p_x - c_x) + (p_y - c_y) * (p_y - c_y) <= radius * radius
     
 
-def estimate_pi(iterations: int) -> float:
+def estimate_pi(iterations):
     x_range = y_range = (-1, 1)
     generated_points = [generate_random_point(x_range, y_range) for _ in range(iterations)]
     return 4 * len([point for point in generated_points if is_in_circle(point, (0, 0), 1)]) / len(generated_points)
